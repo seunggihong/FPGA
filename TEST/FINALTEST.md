@@ -75,13 +75,13 @@ module d_ff_rstb
 ) (
     input               clk,
 	input				rstb,
-    input       [N-1:0] d,
-    output reg  [N-1:0] q
+	input       [N-1:0] d,
+	output reg  [N-1:0] q
 )
 
 always @(posedge clk or negedge rstb) begin
-    if (~rstb) 	q <= 0;
-	else		q <= d;
+    if (~rstb) q <= 0;
+	else q <= d;
 end
 
 endmodule
@@ -100,12 +100,13 @@ module modm_counter_1
 	parameter N = $clog2(M)
 ) (
 	input 			clk, rstb,
-	output 	[N-1:0] q,
+	output 	[N-1:0]	q,
 	output			max_tick
 );
 
 reg	[N-1:0] state_reg;
 wire [N-1:0] state_next;
+
 always @(posedge clk or negedge rstb) begin
 	if (~rstb) 	state_reg <= 0;
 	else 		state_reg <= state_next;
@@ -130,7 +131,7 @@ module modm_counter_2
 	parameter N = $clog2(M)
 ) (
 	input 			clk, rstb,
-	output 	[N-1:0] q,
+	output 	[N-1:0]	q,
 	output 			max_tick
 );
 
@@ -203,7 +204,7 @@ module edge_detector_mealy(
 	output 	reg p2
 );
 
-localparam 	ZERO = 1'b0,
+localparam	ZERO = 1'b0,
 			ONE = 1'b1;
 
 reg state_reg, state_next;
@@ -237,7 +238,7 @@ module edge_detector_moore(
 	output reg 	p1
 );
 
-localparam [1:0] 	ZERO = 2'b00,
+localparam [1:0]	ZERO = 2'b00,
 					EDGE = 2'b01,
 					ONE = 2'b10;
 
@@ -326,11 +327,11 @@ endmodule
 // 비동기식 single-port RAM
 module sp_ram_async_read
 #(
-	parameter 	N = 8,
+	parameter	N = 8,
 				W = 2
 ) (
-	input 			clk,
-	input 			we,
+	input			clk,
+	input			we,
 	input 	[W-1:0] addr,
 	input 	[N-1:0] din,
 	output 	[N-1:0] dout
@@ -362,7 +363,7 @@ module sp_ram_sync_read
 	parameter N = 8,
 	W = 2
 ) (
-	input 			clk,
+	input			clk,
 	input			we,
 	input 	[W-1:0] addr,
 	input 	[N-1:0] din,
