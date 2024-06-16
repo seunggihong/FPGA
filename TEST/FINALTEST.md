@@ -173,6 +173,23 @@ endmodule
 <img width="769" alt="fsm_state" src="https://github.com/seunggihong/FPGA/assets/39299265/e7fb0e86-fbca-4aa1-b572-c4e5b70eb50a">
 </p>
 
+<p align='center'>
+<img width="680" alt="fsm" src="https://github.com/seunggihong/FPGA/assets/39299265/5335f198-e6ce-489d-9b6c-c7004318a02f">
+</p>
+
+**_EX) 간소화 메모리 컨트롤러_**
+
+- **CPU**
+
+  - mem: 1로 되면 메모리 접속 필요
+  - rw : 1로 되면 메모리 읽기, 0로 되면 메모리 쓰기
+  - burst: 1로 되면 메모리 연속 읽기 (4번)
+
+- **메모리**
+
+  - we : 1로 되면 메모리에 다이터 쓰기 가능
+  - oe : 1로 되면 메모리에서 데이터 읽기 가능
+
 **_FSM 상태도_**
 
 <p align="center">
